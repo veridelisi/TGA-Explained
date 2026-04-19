@@ -37,7 +37,7 @@ The app walks through a **step-by-step visual narrative**:
 ## 🖥️ Live Demo
 
 👉 *(Add your GitHub Pages link here after deployment)*  
-`https://your-username.github.io/TGA-Explained/`
+`https://veridelisi.github.io/TGA-Explained/`
 
 ---
 
@@ -56,5 +56,5 @@ The app walks through a **step-by-step visual narrative**:
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/TGA-Explained.git
+git clone https://github.com/veridelisi/TGA-Explained.git
 cd TGA-Explained
