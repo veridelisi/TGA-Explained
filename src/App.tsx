@@ -149,39 +149,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1 grid grid-cols-[320px_1fr] gap-5 p-5 overflow-hidden">
-        {/* Sidebar Timeline - Professional Polish Style */}
-        <aside className="bg-pane border border-border-ui rounded-lg p-5 flex flex-col gap-4 overflow-y-auto pane-shadow">
-          <div className="text-[11px] font-bold text-text-muted uppercase tracking-wider mb-2 border-b border-border-ui pb-2">
-            Presentation Timeline
-          </div>
-          {SCENES.map((scene, idx) => (
-            <button
-              key={scene.id}
-              onClick={() => setCurrentStep(idx)}
-              className={`text-left p-3 rounded-md transition-all border-l-4 ${
-                currentStep === idx 
-                ? 'bg-bg border-accent-bank' 
-                : 'border-transparent hover:bg-bg/50'
-              }`}
-            >
-              <span className={`block text-[10px] font-bold mb-1 ${currentStep === idx ? 'text-accent-bank' : 'text-text-muted'}`}>
-                {scene.time}
-              </span>
-              <strong className="block text-sm font-bold text-text-main mb-1">
-                {scene.title}
-              </strong>
-              <p className="text-[11px] text-text-muted line-clamp-2 leading-tight">
-                {scene.voiceover.slice(0, 60)}...
-              </p>
-            </button>
-          ))}
-          
-          <div className="mt-auto pt-4 border-t border-border-ui text-[10px] text-text-muted leading-relaxed">
-            Use <kbd className="px-1 bg-bg border border-border-ui rounded">Space</kbd> or <kbd className="px-1 bg-bg border border-border-ui rounded">→</kbd> to advance
-          </div>
-        </aside>
-
+      <main className="flex-1 flex flex-col p-5 overflow-hidden">
         {/* Visualization Canvas - Professional Polish Style */}
         <section className="bg-pane border border-border-ui rounded-lg p-10 flex flex-col relative pane-shadow overflow-hidden">
           {/* Top Status Indicators */}
