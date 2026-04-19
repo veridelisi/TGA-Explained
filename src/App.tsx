@@ -120,16 +120,16 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg font-sans text-text-main flex flex-col overflow-hidden h-screen">
+    <div className="min-h-screen bg-bg font-sans text-text-main flex flex-col overflow-x-hidden h-screen">
       {/* Navigation Header - Professional Polish Style */}
-      <header className="h-20 bg-primary text-white flex items-center justify-between px-10 border-b-4 border-accent-bank shrink-0">
-        <div className="flex flex-col">
-          <h1 className="text-2xl font-bold tracking-tight">Treasury General Account & Money Creation</h1>
+      <header className="min-h-20 bg-primary text-white flex flex-col sm:flex-row items-center justify-between px-4 sm:px-10 border-b-4 border-accent-bank shrink-0 py-4 sm:py-0 gap-4">
+        <div className="flex flex-col text-center sm:text-left">
+          <h1 className="text-lg sm:text-2xl font-bold tracking-tight px-2 sm:px-0">Treasury General Account & Money Creation</h1>
           <p className="text-[10px] text-white/50 uppercase tracking-[0.2em]">Monetary Policy Explainer Series</p>
         </div>
-        <div className="flex items-center gap-6">
-          <div className="bg-white/10 px-3 py-1.5 rounded text-[10px] uppercase font-bold tracking-widest border border-white/5">
-            Step {currentStep + 1} of {SCENES.length}
+        <div className="flex items-center gap-4 sm:gap-6">
+          <div className="bg-white/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded text-[10px] uppercase font-bold tracking-widest border border-white/5">
+            {currentStep + 1} / {SCENES.length}
           </div>
           <div className="flex gap-2">
             <button 
@@ -149,45 +149,45 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col p-5 overflow-hidden">
+      <main className="flex-1 flex flex-col p-2 sm:p-5 overflow-hidden">
         {/* Visualization Canvas - Professional Polish Style */}
-        <section className="bg-pane border border-border-ui rounded-lg p-10 flex flex-col relative pane-shadow overflow-hidden">
+        <section className="bg-pane border border-border-ui rounded-lg p-4 sm:p-10 flex flex-col relative pane-shadow overflow-hidden">
           {/* Top Status Indicators */}
-          <div className="flex justify-between items-start mb-8 z-30">
+          <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start mb-4 sm:mb-8 z-30 gap-4">
             <AnimatePresence mode="wait">
               {SCENES[currentStep].hook && (
                 <motion.div 
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}
-                  className="bg-accent-alert text-white px-6 py-3 rounded-md font-bold text-sm flex items-center gap-2 shadow-lg"
+                  className="bg-accent-alert text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg"
                 >
-                  <span className="text-lg">✕</span> Money Printer: WRONG
+                  <span className="text-lg">✕</span> WRONG
                 </motion.div>
               )}
             </AnimatePresence>
 
-            <div className="text-right">
-              <h2 className={`text-3xl font-bold tracking-tight mb-2 ${SCENES[currentStep].hook ? 'text-accent-alert' : 'text-primary'}`}>
+            <div className="text-center sm:text-right">
+              <h2 className={`text-base sm:text-3xl font-bold tracking-tight mb-2 ${SCENES[currentStep].hook ? 'text-accent-alert' : 'text-primary'}`}>
                 {SCENES[currentStep].voiceover.replace(/[“”]/g, '')}
               </h2>
             </div>
           </div>
 
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 flex items-center justify-center overflow-auto py-4">
             <Visualization currentStep={currentStep} />
           </div>
 
           {/* Conclusion Footer - Professional Polish style */}
-          <div className="h-24 border-t border-border-ui flex justify-center items-center gap-16 mt-6 pt-2 shrink-0">
-                <div className="text-center">
-                  <span className="block text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Government Action</span>
-                  <span className="block text-2xl font-black text-primary">REDISTRIBUTE</span>
+          <div className="min-h-24 border-t border-border-ui flex flex-row justify-center items-center gap-4 sm:gap-16 mt-4 sm:mt-6 pt-4 shrink-0 overflow-x-auto">
+                <div className="text-center shrink-0">
+                  <span className="block text-[8px] sm:text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Gov. Action</span>
+                  <span className="block text-sm sm:text-2xl font-black text-primary">REDISTRIBUTE</span>
                 </div>
-                <div className="text-4xl font-bold text-accent-bank opacity-30">≠</div>
-                <div className="text-center">
-                  <span className="block text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Private Banking</span>
-                  <span className="block text-2xl font-black text-accent-bank">MONEY CREATION</span>
+                <div className="text-xl sm:text-4xl font-bold text-accent-bank opacity-30 shrink-0">≠</div>
+                <div className="text-center shrink-0">
+                  <span className="block text-[8px] sm:text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Private Banking</span>
+                  <span className="block text-sm sm:text-2xl font-black text-accent-bank">CREATION</span>
                 </div>
           </div>
           
@@ -206,7 +206,7 @@ export default function App() {
 
 function Visualization({ currentStep }: { currentStep: number }) {
   return (
-    <div className="w-full h-full relative flex flex-col items-center justify-center gap-16">
+    <div className="w-full h-full relative flex flex-col items-center justify-center gap-8 sm:gap-16 scale-75 sm:scale-100">
       <AnimatePresence mode="wait">
         {currentStep === 0 && <InitialHookView key="v0" />}
         {currentStep === 1 && <TgaBasicsView key="v1" />}
@@ -469,40 +469,38 @@ function ScaleComparisonView() {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="flex flex-col items-center gap-12 w-full max-w-2xl px-10"
+      className="flex flex-col items-center gap-4 sm:gap-12 w-full max-w-2xl px-2 sm:px-10"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end w-full">
+      <div className="grid grid-cols-2 gap-4 sm:gap-10 items-end w-full">
         {/* TGA Scale */}
-        <div className="flex flex-col items-center gap-4">
-            <div className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Treasury Balance</div>
+        <div className="flex flex-col items-center gap-2 sm:gap-4">
+            <div className="text-[8px] sm:text-[10px] font-bold text-text-muted uppercase tracking-widest text-center">Treasury Balance</div>
             <motion.div 
               initial={{ height: 0 }}
-              animate={{ height: 40 }}
-              className="w-full bg-primary/20 border-2 border-primary rounded-lg flex items-center justify-center p-4 relative"
+              animate={{ height: 20 }}
+              className="w-full bg-primary/20 border-2 border-primary rounded flex items-center justify-center p-1 sm:p-4 relative"
             >
-                <div className="font-bold text-primary text-xs tracking-tighter">$751 BILLION</div>
+                <div className="font-bold text-primary text-[8px] sm:text-xs tracking-tighter">$751B</div>
             </motion.div>
-            <div className="text-[10px] font-bold text-primary italic">"Small Payment Account"</div>
         </div>
 
         {/* Banks Scale */}
-        <div className="flex flex-col items-center gap-4">
-            <div className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Commercial Deposits</div>
+        <div className="flex flex-col items-center gap-2 sm:gap-4">
+            <div className="text-[8px] sm:text-[10px] font-bold text-text-muted uppercase tracking-widest text-center">Commercial Deposits</div>
             <motion.div 
               initial={{ height: 0 }}
-              animate={{ height: 320 }}
-              className="w-full bg-accent-bank border-2 border-white/20 rounded-lg flex flex-col items-center justify-center p-8 relative shadow-2xl"
+              animate={{ height: 160 }}
+              className="w-full bg-accent-bank border-2 border-white/20 rounded flex flex-col items-center justify-center p-4 sm:p-8 relative shadow-2xl"
             >
-                <Building2 className="text-white/20 w-16 h-16 absolute top-4 right-4" />
-                <div className="font-black text-white text-5xl tracking-tighter">$19</div>
-                <div className="font-bold text-white text-xl uppercase tracking-widest">TRILLION</div>
+                <Building2 className="text-white/20 w-8 h-8 sm:w-16 sm:h-16 absolute top-2 right-2" />
+                <div className="font-black text-white text-2xl sm:text-5xl tracking-tighter">$19</div>
+                <div className="font-bold text-white text-xs sm:text-xl uppercase tracking-widest">TRILLION</div>
             </motion.div>
-            <div className="text-[10px] font-bold text-accent-bank italic">"Large Deposit Base"</div>
         </div>
       </div>
       
-      <div className="bg-bg p-6 rounded-lg text-center border border-border-ui w-full">
-          <p className="text-[11px] font-bold text-text-muted uppercase tracking-[0.2em]">The Scale Difference: ~25x</p>
+      <div className="bg-bg p-3 sm:p-6 rounded-lg text-center border border-border-ui w-full">
+          <p className="text-[9px] sm:text-[11px] font-bold text-text-muted uppercase tracking-[0.2em]">The Scale Difference: ~25x</p>
       </div>
     </motion.div>
   );
@@ -570,21 +568,21 @@ function PunchlineView() {
       initial={{ opacity: 0, scale: 0.8 }} 
       animate={{ opacity: 1, scale: 1 }} 
       exit={{ opacity: 0 }}
-      className="flex flex-col items-center justify-center gap-12 w-full h-full"
+      className="flex flex-col items-center justify-center gap-8 sm:gap-12 w-full h-full overflow-y-auto"
     >
-        <div className="grid grid-cols-2 gap-10 w-full max-w-2xl px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 w-full max-w-2xl px-4 sm:px-10">
             <motion.div 
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.2, type: "spring" }}
-                className="bg-pane border-2 border-accent-gov p-10 rounded-[2rem] flex flex-col items-center gap-6 text-center pane-shadow"
+                className="bg-pane border-2 border-accent-gov p-6 sm:p-10 rounded-2xl sm:rounded-[2rem] flex flex-col items-center gap-4 sm:gap-6 text-center pane-shadow"
             >
-                <div className="w-20 h-20 bg-bg border-x-4 border-b-4 border-accent-gov rounded-b-2xl relative overflow-hidden flex items-center justify-center">
-                    <Repeat className="w-10 h-10 text-accent-gov opacity-20" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-bg border-x-4 border-b-4 border-accent-gov rounded-b-2xl relative overflow-hidden flex items-center justify-center">
+                    <Repeat className="w-8 h-8 sm:w-10 sm:h-10 text-accent-gov opacity-20" />
                 </div>
                 <div>
-                    <h4 className="text-[10px] font-bold text-text-muted mb-2 uppercase tracking-widest">Government</h4>
-                    <p className="text-4xl font-black text-primary tracking-tighter uppercase">MOVES IT</p>
+                    <h4 className="text-[10px] font-bold text-text-muted mb-1 sm:mb-2 uppercase tracking-widest">Government</h4>
+                    <p className="text-2xl sm:text-4xl font-black text-primary tracking-tighter uppercase">MOVES IT</p>
                 </div>
             </motion.div>
 
@@ -592,17 +590,17 @@ function PunchlineView() {
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.4, type: "spring" }}
-                className="bg-accent-bank p-10 rounded-[2rem] flex flex-col items-center gap-6 text-center shadow-2xl relative border-4 border-white/20"
+                className="bg-accent-bank p-6 sm:p-10 rounded-2xl sm:rounded-[2rem] flex flex-col items-center gap-4 sm:gap-6 text-center shadow-2xl relative border-4 border-white/20"
             >
                 <div className="absolute top-4 right-4 text-white/20">
-                    <PlusCircle className="w-8 h-8" />
+                    <PlusCircle className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center shadow-inner">
-                    <Building2 className="w-12 h-12 text-white" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-2xl flex items-center justify-center shadow-inner">
+                    <Building2 className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                 </div>
                 <div className="text-white">
-                    <h4 className="text-[10px] font-bold opacity-60 mb-2 uppercase tracking-widest">Banks</h4>
-                    <p className="text-4xl font-black tracking-tighter uppercase">CREATE IT</p>
+                    <h4 className="text-[10px] font-bold opacity-60 mb-1 sm:mb-2 uppercase tracking-widest">Banks</h4>
+                    <p className="text-2xl sm:text-4xl font-black tracking-tighter uppercase">CREATE IT</p>
                 </div>
             </motion.div>
         </div>
