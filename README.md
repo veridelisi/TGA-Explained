@@ -1,20 +1,60 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 💸 TGA Explained: Treasury vs Money Creation
 
-# Run and deploy your AI Studio app
+An interactive visual explanation of how the **Treasury General Account (TGA)** works — and why **government spending is NOT the same as money creation**.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/0110e30e-a2bc-4a93-b5f2-a66fa517d38e
+## 🎯 Core Idea
 
-## Run Locally
+> The Treasury moves money.  
+> Banks create money.
 
-**Prerequisites:**  Node.js
+This project demonstrates a key distinction in modern monetary systems:
 
+- Government operations (spending, taxes, borrowing)  
+  → **redistribute existing money**
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- Banking system (loans)  
+  → **creates new money (deposits)**
+
+---
+
+## 🎬 What This App Shows
+
+The app walks through a **step-by-step visual narrative**:
+
+1. ❌ Myth: Government prints money  
+2. 🏛️ Treasury uses the TGA (account at the Fed)  
+3. 🔄 Spending = transfer to private bank accounts  
+4. 🔙 Taxes & bonds = money flows back to TGA  
+5. ⚖️ Net effect = accounting shifts (no new money)  
+6. 🏦 Banks create money via loans  
+7. 📊 Scale comparison: TGA vs banking system  
+8. 🧠 Final insight: who really creates money?
+
+---
+
+## 🖥️ Live Demo
+
+👉 *(Add your GitHub Pages link here after deployment)*  
+`https://your-username.github.io/TGA-Explained/`
+
+---
+
+## ⚙️ Tech Stack
+
+- ⚛️ React + TypeScript
+- ⚡ Vite
+- 🎨 Tailwind CSS
+- 🎬 Framer Motion
+- 🧩 Lucide Icons
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/TGA-Explained.git
+cd TGA-Explained
